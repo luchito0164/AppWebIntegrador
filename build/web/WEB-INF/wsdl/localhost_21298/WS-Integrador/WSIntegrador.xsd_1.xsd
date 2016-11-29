@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://servicios/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://servicios/">
+
+<xs:element name="UnknownHostException" type="tns:UnknownHostException"/>
+
+<xs:element name="almacenarCola" type="tns:almacenarCola"/>
+
+<xs:element name="almacenarColaResponse" type="tns:almacenarColaResponse"/>
+
+<xs:element name="buscarCliente" type="tns:buscarCliente"/>
+
+<xs:element name="buscarClienteResponse" type="tns:buscarClienteResponse"/>
+
+<xs:element name="buscarNumero" type="tns:buscarNumero"/>
+
+<xs:element name="buscarNumeroResponse" type="tns:buscarNumeroResponse"/>
+
+<xs:element name="encontrarTipo" type="tns:encontrarTipo"/>
+
+<xs:element name="encontrarTipoResponse" type="tns:encontrarTipoResponse"/>
+
+<xs:element name="guardarConsumo" type="tns:guardarConsumo"/>
+
+<xs:element name="guardarConsumoResponse" type="tns:guardarConsumoResponse"/>
+
+<xs:element name="listarClientes" type="tns:listarClientes"/>
+
+<xs:element name="listarClientesResponse" type="tns:listarClientesResponse"/>
+
+<xs:element name="modificarCliente" type="tns:modificarCliente"/>
+
+<xs:element name="modificarClienteResponse" type="tns:modificarClienteResponse"/>
+
+<xs:element name="verificarLogin" type="tns:verificarLogin"/>
+
+<xs:element name="verificarLoginResponse" type="tns:verificarLoginResponse"/>
+
+<xs:complexType name="encontrarTipo">
+<xs:sequence>
+<xs:element name="usuario" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="encontrarTipoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="UnknownHostException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarCliente">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="cliente" type="tns:cliente" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cliente">
+<xs:sequence>
+<xs:element name="direccion" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="numSumi" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+<xs:element name="usuario" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarClienteResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="buscarCliente">
+<xs:sequence>
+<xs:element name="numSumi" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarClienteResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cliente" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarNumero">
+<xs:sequence>
+<xs:element name="numero" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarNumeroResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cliente" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarClientes">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarClientesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cliente" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="almacenarCola">
+<xs:sequence>
+<xs:element name="consumo" type="xs:string" minOccurs="0"/>
+<xs:element name="numeroSumi" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:string" minOccurs="0"/>
+<xs:element name="cliente" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="almacenarColaResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="guardarConsumo">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="guardarConsumoResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="verificarLogin">
+<xs:sequence>
+<xs:element name="usuario" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="verificarLoginResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
