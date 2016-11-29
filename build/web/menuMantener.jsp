@@ -81,7 +81,7 @@
                              <td>
                                
                                 <a href="Modificar?id=${pregunta.numSumi}" class="btn btn-info btn-xs active" >Modificar</a>
-                                <a href="EliminarClienteid=${pregunta.numSumi}" class="btn btn-info btn-xs active" >Eliminar</a>
+                                <a href="Eliminar?id=${pregunta.numSumi}" class="btn btn-info btn-xs active" >Eliminar</a>
                             </td>
                             
                             

@@ -14,6 +14,10 @@
 
 <xs:element name="buscarNumeroResponse" type="tns:buscarNumeroResponse"/>
 
+<xs:element name="eliminarCliente" type="tns:eliminarCliente"/>
+
+<xs:element name="eliminarClienteResponse" type="tns:eliminarClienteResponse"/>
+
 <xs:element name="encontrarTipo" type="tns:encontrarTipo"/>
 
 <xs:element name="encontrarTipoResponse" type="tns:encontrarTipoResponse"/>
@@ -33,6 +37,10 @@
 <xs:element name="verificarLogin" type="tns:verificarLogin"/>
 
 <xs:element name="verificarLoginResponse" type="tns:verificarLoginResponse"/>
+
+<xs:element name="verificarSuministro" type="tns:verificarSuministro"/>
+
+<xs:element name="verificarSuministroResponse" type="tns:verificarSuministroResponse"/>
 
 <xs:complexType name="encontrarTipo">
 <xs:sequence>
@@ -108,6 +116,16 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="eliminarCliente">
+<xs:sequence>
+<xs:element name="numSumi" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarClienteResponse">
+<xs:sequence/>
+</xs:complexType>
+
 <xs:complexType name="almacenarCola">
 <xs:sequence>
 <xs:element name="consumo" type="xs:string" minOccurs="0"/>
@@ -119,6 +137,18 @@
 
 <xs:complexType name="almacenarColaResponse">
 <xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="verificarSuministro">
+<xs:sequence>
+<xs:element name="numSumi" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="verificarSuministroResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="guardarConsumo">

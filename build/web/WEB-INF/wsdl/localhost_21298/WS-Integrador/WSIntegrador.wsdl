@@ -4,14 +4,20 @@
 <xsd:import namespace="http://servicios/" schemaLocation="http://localhost:21298/WS-Integrador/WSIntegrador?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="eliminarCliente">
+<part name="parameters" element="tns:eliminarCliente"/>
+</message>
+<message name="eliminarClienteResponse">
+<part name="parameters" element="tns:eliminarClienteResponse"/>
+</message>
+<message name="UnknownHostException">
+<part name="fault" element="tns:UnknownHostException"/>
+</message>
 <message name="verificarLogin">
 <part name="parameters" element="tns:verificarLogin"/>
 </message>
 <message name="verificarLoginResponse">
 <part name="parameters" element="tns:verificarLoginResponse"/>
-</message>
-<message name="UnknownHostException">
-<part name="fault" element="tns:UnknownHostException"/>
 </message>
 <message name="encontrarTipo">
 <part name="parameters" element="tns:encontrarTipo"/>
@@ -19,29 +25,11 @@
 <message name="encontrarTipoResponse">
 <part name="parameters" element="tns:encontrarTipoResponse"/>
 </message>
-<message name="almacenarCola">
-<part name="parameters" element="tns:almacenarCola"/>
-</message>
-<message name="almacenarColaResponse">
-<part name="parameters" element="tns:almacenarColaResponse"/>
-</message>
 <message name="buscarNumero">
 <part name="parameters" element="tns:buscarNumero"/>
 </message>
 <message name="buscarNumeroResponse">
 <part name="parameters" element="tns:buscarNumeroResponse"/>
-</message>
-<message name="guardarConsumo">
-<part name="parameters" element="tns:guardarConsumo"/>
-</message>
-<message name="guardarConsumoResponse">
-<part name="parameters" element="tns:guardarConsumoResponse"/>
-</message>
-<message name="listarClientes">
-<part name="parameters" element="tns:listarClientes"/>
-</message>
-<message name="listarClientesResponse">
-<part name="parameters" element="tns:listarClientesResponse"/>
 </message>
 <message name="modificarCliente">
 <part name="parameters" element="tns:modificarCliente"/>
@@ -49,13 +37,42 @@
 <message name="modificarClienteResponse">
 <part name="parameters" element="tns:modificarClienteResponse"/>
 </message>
+<message name="listarClientes">
+<part name="parameters" element="tns:listarClientes"/>
+</message>
+<message name="listarClientesResponse">
+<part name="parameters" element="tns:listarClientesResponse"/>
+</message>
 <message name="buscarCliente">
 <part name="parameters" element="tns:buscarCliente"/>
 </message>
 <message name="buscarClienteResponse">
 <part name="parameters" element="tns:buscarClienteResponse"/>
 </message>
+<message name="almacenarCola">
+<part name="parameters" element="tns:almacenarCola"/>
+</message>
+<message name="almacenarColaResponse">
+<part name="parameters" element="tns:almacenarColaResponse"/>
+</message>
+<message name="guardarConsumo">
+<part name="parameters" element="tns:guardarConsumo"/>
+</message>
+<message name="guardarConsumoResponse">
+<part name="parameters" element="tns:guardarConsumoResponse"/>
+</message>
+<message name="verificarSuministro">
+<part name="parameters" element="tns:verificarSuministro"/>
+</message>
+<message name="verificarSuministroResponse">
+<part name="parameters" element="tns:verificarSuministroResponse"/>
+</message>
 <portType name="WSIntegrador">
+<operation name="eliminarCliente">
+<input wsam:Action="http://servicios/WSIntegrador/eliminarClienteRequest" message="tns:eliminarCliente"/>
+<output wsam:Action="http://servicios/WSIntegrador/eliminarClienteResponse" message="tns:eliminarClienteResponse"/>
+<fault message="tns:UnknownHostException" name="UnknownHostException" wsam:Action="http://servicios/WSIntegrador/eliminarCliente/Fault/UnknownHostException"/>
+</operation>
 <operation name="verificarLogin">
 <input wsam:Action="http://servicios/WSIntegrador/verificarLoginRequest" message="tns:verificarLogin"/>
 <output wsam:Action="http://servicios/WSIntegrador/verificarLoginResponse" message="tns:verificarLoginResponse"/>
@@ -66,39 +83,56 @@
 <output wsam:Action="http://servicios/WSIntegrador/encontrarTipoResponse" message="tns:encontrarTipoResponse"/>
 <fault message="tns:UnknownHostException" name="UnknownHostException" wsam:Action="http://servicios/WSIntegrador/encontrarTipo/Fault/UnknownHostException"/>
 </operation>
-<operation name="almacenarCola">
-<input wsam:Action="http://servicios/WSIntegrador/almacenarColaRequest" message="tns:almacenarCola"/>
-<output wsam:Action="http://servicios/WSIntegrador/almacenarColaResponse" message="tns:almacenarColaResponse"/>
-<fault message="tns:UnknownHostException" name="UnknownHostException" wsam:Action="http://servicios/WSIntegrador/almacenarCola/Fault/UnknownHostException"/>
-</operation>
 <operation name="buscarNumero">
 <input wsam:Action="http://servicios/WSIntegrador/buscarNumeroRequest" message="tns:buscarNumero"/>
 <output wsam:Action="http://servicios/WSIntegrador/buscarNumeroResponse" message="tns:buscarNumeroResponse"/>
 <fault message="tns:UnknownHostException" name="UnknownHostException" wsam:Action="http://servicios/WSIntegrador/buscarNumero/Fault/UnknownHostException"/>
-</operation>
-<operation name="guardarConsumo">
-<input wsam:Action="http://servicios/WSIntegrador/guardarConsumoRequest" message="tns:guardarConsumo"/>
-<output wsam:Action="http://servicios/WSIntegrador/guardarConsumoResponse" message="tns:guardarConsumoResponse"/>
-<fault message="tns:UnknownHostException" name="UnknownHostException" wsam:Action="http://servicios/WSIntegrador/guardarConsumo/Fault/UnknownHostException"/>
-</operation>
-<operation name="listarClientes">
-<input wsam:Action="http://servicios/WSIntegrador/listarClientesRequest" message="tns:listarClientes"/>
-<output wsam:Action="http://servicios/WSIntegrador/listarClientesResponse" message="tns:listarClientesResponse"/>
-<fault message="tns:UnknownHostException" name="UnknownHostException" wsam:Action="http://servicios/WSIntegrador/listarClientes/Fault/UnknownHostException"/>
 </operation>
 <operation name="modificarCliente">
 <input wsam:Action="http://servicios/WSIntegrador/modificarClienteRequest" message="tns:modificarCliente"/>
 <output wsam:Action="http://servicios/WSIntegrador/modificarClienteResponse" message="tns:modificarClienteResponse"/>
 <fault message="tns:UnknownHostException" name="UnknownHostException" wsam:Action="http://servicios/WSIntegrador/modificarCliente/Fault/UnknownHostException"/>
 </operation>
+<operation name="listarClientes">
+<input wsam:Action="http://servicios/WSIntegrador/listarClientesRequest" message="tns:listarClientes"/>
+<output wsam:Action="http://servicios/WSIntegrador/listarClientesResponse" message="tns:listarClientesResponse"/>
+<fault message="tns:UnknownHostException" name="UnknownHostException" wsam:Action="http://servicios/WSIntegrador/listarClientes/Fault/UnknownHostException"/>
+</operation>
 <operation name="buscarCliente">
 <input wsam:Action="http://servicios/WSIntegrador/buscarClienteRequest" message="tns:buscarCliente"/>
 <output wsam:Action="http://servicios/WSIntegrador/buscarClienteResponse" message="tns:buscarClienteResponse"/>
 <fault message="tns:UnknownHostException" name="UnknownHostException" wsam:Action="http://servicios/WSIntegrador/buscarCliente/Fault/UnknownHostException"/>
 </operation>
+<operation name="almacenarCola">
+<input wsam:Action="http://servicios/WSIntegrador/almacenarColaRequest" message="tns:almacenarCola"/>
+<output wsam:Action="http://servicios/WSIntegrador/almacenarColaResponse" message="tns:almacenarColaResponse"/>
+<fault message="tns:UnknownHostException" name="UnknownHostException" wsam:Action="http://servicios/WSIntegrador/almacenarCola/Fault/UnknownHostException"/>
+</operation>
+<operation name="guardarConsumo">
+<input wsam:Action="http://servicios/WSIntegrador/guardarConsumoRequest" message="tns:guardarConsumo"/>
+<output wsam:Action="http://servicios/WSIntegrador/guardarConsumoResponse" message="tns:guardarConsumoResponse"/>
+<fault message="tns:UnknownHostException" name="UnknownHostException" wsam:Action="http://servicios/WSIntegrador/guardarConsumo/Fault/UnknownHostException"/>
+</operation>
+<operation name="verificarSuministro">
+<input wsam:Action="http://servicios/WSIntegrador/verificarSuministroRequest" message="tns:verificarSuministro"/>
+<output wsam:Action="http://servicios/WSIntegrador/verificarSuministroResponse" message="tns:verificarSuministroResponse"/>
+<fault message="tns:UnknownHostException" name="UnknownHostException" wsam:Action="http://servicios/WSIntegrador/verificarSuministro/Fault/UnknownHostException"/>
+</operation>
 </portType>
 <binding name="WSIntegradorPortBinding" type="tns:WSIntegrador">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="eliminarCliente">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="UnknownHostException">
+<soap:fault name="UnknownHostException" use="literal"/>
+</fault>
+</operation>
 <operation name="verificarLogin">
 <soap:operation soapAction=""/>
 <input>
@@ -123,43 +157,7 @@
 <soap:fault name="UnknownHostException" use="literal"/>
 </fault>
 </operation>
-<operation name="almacenarCola">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="UnknownHostException">
-<soap:fault name="UnknownHostException" use="literal"/>
-</fault>
-</operation>
 <operation name="buscarNumero">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="UnknownHostException">
-<soap:fault name="UnknownHostException" use="literal"/>
-</fault>
-</operation>
-<operation name="guardarConsumo">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="UnknownHostException">
-<soap:fault name="UnknownHostException" use="literal"/>
-</fault>
-</operation>
-<operation name="listarClientes">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -183,7 +181,55 @@
 <soap:fault name="UnknownHostException" use="literal"/>
 </fault>
 </operation>
+<operation name="listarClientes">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="UnknownHostException">
+<soap:fault name="UnknownHostException" use="literal"/>
+</fault>
+</operation>
 <operation name="buscarCliente">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="UnknownHostException">
+<soap:fault name="UnknownHostException" use="literal"/>
+</fault>
+</operation>
+<operation name="almacenarCola">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="UnknownHostException">
+<soap:fault name="UnknownHostException" use="literal"/>
+</fault>
+</operation>
+<operation name="guardarConsumo">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="UnknownHostException">
+<soap:fault name="UnknownHostException" use="literal"/>
+</fault>
+</operation>
+<operation name="verificarSuministro">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

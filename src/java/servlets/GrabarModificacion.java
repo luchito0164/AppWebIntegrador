@@ -24,6 +24,9 @@ import javax.xml.ws.WebServiceRef;
 public class GrabarModificacion extends HttpServlet {
      @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_21298/WS-Integrador/WSIntegrador.wsdl")
     private WSIntegrador_Service service;
+     
+     boolean existe;
+     boolean noCambio=false;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -74,14 +77,27 @@ public class GrabarModificacion extends HttpServlet {
         String usuario=request.getParameter("usuario");
           String password=request.getParameter("password");
           
-          Cliente cli= new Cliente();
+          
+           Cliente cli= new Cliente();
           cli.setDireccion(direccion);
           cli.setNombre(nombre);
           cli.setNumSumi(numSumi);
           cli.setPassword(password);
           cli.setUsuario(usuario);
           
+          noCambio=id.equals(numSumi);
+          
          try {
+             existe=verificarSuministro(numSumi);
+         } catch (UnknownHostException_Exception ex) {
+             Logger.getLogger(GrabarModificacion.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         
+         if(existe==true &&  noCambio==false){
+              response.sendRedirect("modificarCliente.jsp");
+             
+         }else{
+             try {
              modificarCliente(id, cli);
          } catch (UnknownHostException_Exception ex) {
              Logger.getLogger(GrabarModificacion.class.getName()).log(Level.SEVERE, null, ex);
@@ -89,6 +105,14 @@ public class GrabarModificacion extends HttpServlet {
           
           
             response.sendRedirect("menuAdmin.jsp");
+             
+             
+         }
+         
+          
+          
+          
+         
         
         
         
@@ -109,5 +133,11 @@ public class GrabarModificacion extends HttpServlet {
         
         servlets.WSIntegrador port= service.getWSIntegradorPort();
         port.modificarCliente(id, cliente);
+    }
+      
+          private boolean verificarSuministro(String numSumi) throws UnknownHostException_Exception{
+        
+        servlets.WSIntegrador port= service.getWSIntegradorPort();
+       return port.verificarSuministro(numSumi);
     }
 }
